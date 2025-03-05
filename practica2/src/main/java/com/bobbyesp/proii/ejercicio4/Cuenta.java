@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.bobbyesp.proii.ejercicio4;
 
-/**
- *
- * @author Docente
- */
 public class Cuenta {
 
     private String titular;
@@ -18,21 +10,24 @@ public class Cuenta {
         if (saldo >= 0) {
             this.saldo = saldo;
         } else {
-            throw new IllegalArgumentException("Saldo debe ser mayor que 0");
+            throw new IllegalArgumentException("Saldo debe ser mayor o igual que 0");
         }
     }
 
     public double ingresar(double dinero) {
-
+        if (dinero < 0) {
+            throw new IllegalArgumentException("No se puede ingresar una cantidad negativa.");
+        }
         saldo = saldo + dinero;
-
         return saldo;
-
     }
 
     public double retirar(double dinero) {
+        if (dinero < 0) {
+            throw new IllegalArgumentException("No se puede retirar una cantidad negativa.");
+        }
         if ((saldo - dinero) < 0) {
-            throw new IllegalArgumentException("Cantidad no disponible, el maximo a retirar es: " + saldo);
+            throw new IllegalArgumentException("Cantidad no disponible, el máximo a retirar es: " + saldo);
         }
         saldo = saldo - dinero;
         return saldo;
@@ -47,5 +42,4 @@ public class Cuenta {
         sb.append('}');
         return sb.toString();
     }
-    
 }

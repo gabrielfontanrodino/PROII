@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="practica1" />
         <module name="practica2" />
+        <module name="practica3" />
       </profile>
     </annotationProcessing>
   </component>

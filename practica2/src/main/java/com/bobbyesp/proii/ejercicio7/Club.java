@@ -10,45 +10,41 @@ package com.bobbyesp.proii.ejercicio7;
  */
 public class Club {
     private int pos;
-    
     private Deportista[] deportistas;
 
-    public Club(int numDeportista) {
-        this.deportistas = new Deportista[numDeportista];
+    public Club(int numDeportistas) {
+        this.deportistas = new Deportista[numDeportistas];
         pos = 0;
     }
 
-   
     public Club() {
         this(20);
     }
-    
-    public int getMax(){
+
+    public int getMax() {
         return this.deportistas.length;
     }
-    
-    public int getNumDeportistas(){
+
+    public int getNumDeportistas() {
         return this.pos;
     }
-    
-    public boolean isFull(){
+
+    public boolean isFull() {
         return getNumDeportistas() == getMax();
     }
-    
-    public void insertarDeportista(Deportista deportista){
-        if(isFull()){
-            throw new IllegalArgumentException("El club no admite mas jugadores");
+
+    public void insertarDeportista(Deportista deportista) {
+        if (isFull()) {
+            throw new IllegalArgumentException("El club no admite más jugadores");
         }
-        
         this.deportistas[pos] = deportista;
         pos++;
     }
-    
-    public Deportista getDeportista(int posicion){
-        if(posicion < 0 || pos <= posicion){
-            throw new IllegalArgumentException("posicion incorrecta");
+
+    public Deportista getDeportista(int posicion) {
+        if (posicion < 0 || posicion >= pos) {
+            throw new IllegalArgumentException("Posición incorrecta: " + posicion);
         }
-        
         return deportistas[posicion];
     }
 
@@ -57,17 +53,10 @@ public class Club {
         StringBuilder sb = new StringBuilder();
         sb.append("Club:");
         for (int i = 0; i < getNumDeportistas(); i++) {
-            
-            sb.append(getDeportista(i));
-            sb.append("\n\t=============\n");
-            
+            sb.append("\n\t").append(getDeportista(i));
+            sb.append("\n\t=============");
         }
         return sb.toString();
     }
-    
-    
-    
-    
-    
-    
 }
+
