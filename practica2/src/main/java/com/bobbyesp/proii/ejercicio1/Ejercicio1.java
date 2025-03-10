@@ -4,8 +4,6 @@
 
 package com.bobbyesp.proii.ejercicio1;
 
-import com.bobbyesp.proii.ejercicio7.Entrada;
-
 import static com.bobbyesp.proii.ejercicio1.Libro.leerLibro;
 
 /**

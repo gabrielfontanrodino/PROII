@@ -15,36 +15,11 @@ public class Division {
     }
 
     public static void main(String[] args) {
-        int num1 = 0;
-        int num2 = 0;
-        String linea;
-        Scanner scan = new Scanner(System.in);
+        int num1, num2;
 
         // Validación de la entrada para el dividendo
-        boolean entradaValida = false;
-        while (!entradaValida) {
-            System.out.print("\nIntroduzca dividendo: ");
-            linea = scan.nextLine();
-            try {
-                num1 = Integer.parseInt(linea);
-                entradaValida = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Error: Debe introducir un número entero. Inténtelo de nuevo.");
-            }
-        }
-
-        // Validación de la entrada para el divisor
-        entradaValida = false;
-        while (!entradaValida) {
-            System.out.print("\nIntroduzca divisor: ");
-            linea = scan.nextLine();
-            try {
-                num2 = Integer.parseInt(linea);
-                entradaValida = true;
-            } catch (NumberFormatException e) {
-                System.out.println("Error: Debe introducir un número entero. Inténtelo de nuevo.");
-            }
-        }
+        num1 = Entrada.leerEntero("Introduzca dividendo: ");
+        num2 = Entrada.leerEntero("Introduzca divisor: ");
 
         // Intentar realizar la división y capturar la excepción de división por cero
         try {

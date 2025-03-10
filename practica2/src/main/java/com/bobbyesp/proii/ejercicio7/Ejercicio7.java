@@ -3,6 +3,8 @@
  */
 package com.bobbyesp.proii.ejercicio7;
 
+import com.bobbyesp.proii.ejercicio1.Entrada;
+
 /**
  *
  * @author Docente
