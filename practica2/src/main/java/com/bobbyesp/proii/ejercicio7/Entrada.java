@@ -12,27 +12,26 @@ import java.util.Scanner;
  */
 public class Entrada {
     
-    private Scanner entrada = new Scanner(System.in);
+    private static final Scanner entrada = new Scanner(System.in);
     
-    public String leerCadenas(String mensaje){
+    public static String leerCadena(String mensaje){
         System.out.println(mensaje); 
         return entrada.nextLine();
     }
     
-    public int leerEntero(String mensaje){
+    public static int leerEntero(String mensaje){
         System.out.println(mensaje);
         return Integer.parseInt(entrada.nextLine());
     }
     
-    public double leerReal(String mensaje){
+    public static double leerReal(String mensaje){
         System.out.println(mensaje);
         return Double.parseDouble(entrada.nextLine());
     }
     
-    public char leerCaracter(String mensaje){
+    public static char leerCaracter(String mensaje){
         System.out.println(mensaje);
         return entrada.nextLine().charAt(0);
     }
-    
-    
+
 }
