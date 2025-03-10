@@ -5,7 +5,6 @@
 package com.bobbyesp.proii.ejercicio1;
 
 /**
- *
  * @author gfrodinho_esei.uvigo
  */
 public enum TipoLibro {

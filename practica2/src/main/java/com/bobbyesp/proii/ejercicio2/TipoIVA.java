@@ -6,7 +6,6 @@ package com.bobbyesp.proii.ejercicio2;
  */
 
 /**
- *
  * @author Docente
  */
 public enum TipoIVA {
@@ -14,17 +13,17 @@ public enum TipoIVA {
     REDUCIDO(0.1),
     SUPERREDUCIDO(0.04),
     EXENTO(0.0);
-    
-    private final double  porcentaje;
+
+    private final double porcentaje;
 
     private TipoIVA(double porcentaje) {
         this.porcentaje = porcentaje;
     }
-    
-    
-    public double calcularPrecioFinal(double precio){
+
+
+    public double calcularPrecioFinal(double precio) {
         return precio + precio * porcentaje;
     }
-    
-    
+
+
 }

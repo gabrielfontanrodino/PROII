@@ -5,7 +5,6 @@
 package com.bobbyesp.proii.ejercicio4;
 
 /**
- *
  * @author Docente
  */
 public class Ejercicio4 {

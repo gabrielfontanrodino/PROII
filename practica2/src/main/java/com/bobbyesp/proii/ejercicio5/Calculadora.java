@@ -5,14 +5,13 @@
 package com.bobbyesp.proii.ejercicio5;
 
 /**
- *
  * @author Docente
  */
 public class Calculadora {
     public static void main(String[] args) {
         Operacion operacion;
         operacion = Operacion.SUMA;
-        
+
         System.out.println(operacion.mostrarResultado(40, 50));
     }
 }

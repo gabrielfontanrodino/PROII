@@ -5,7 +5,6 @@
 package com.bobbyesp.proii.ejercicio1;
 
 /**
- *
  * @author BobbyESP y Carlabbis
  */
 public class Libro {
@@ -53,14 +52,14 @@ public class Libro {
         int ano;
         int isbn;
         TipoLibro tipoLibro;
-        
+
         titulo = Entrada.leerCadena("Introduce el titulo: ");
         autores = Entrada.leerCadena("Introduce los autores: ");
         editorial = Entrada.leerCadena("Introduce la editorial: ");
         ano = Entrada.leerEntero("Introduce el año de publicacion: ");
         isbn = Entrada.leerEntero("Introduce el ISBN: ");
         tipoLibro = TipoLibro.leerTipoLibro();
-        
+
         return new Libro(titulo, autores, editorial, ano, isbn, tipoLibro);
     }
 

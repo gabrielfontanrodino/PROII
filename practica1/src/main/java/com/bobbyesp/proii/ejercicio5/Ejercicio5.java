@@ -6,7 +6,6 @@ package com.bobbyesp.proii.ejercicio5;
 import java.util.Scanner;
 
 /**
- *
  * @author Docente
  */
 public class Ejercicio5 {
@@ -32,7 +31,7 @@ public class Ejercicio5 {
         ano = Integer.parseInt(entrada.nextLine());
         System.out.print("ISBN: ");
         isbn = Integer.parseInt(entrada.nextLine());
-        
+
         libro = new Libro(titulo, autores, editorial, ano, isbn);
 
         System.out.println(libro.toString());

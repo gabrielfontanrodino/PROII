@@ -1,17 +1,15 @@
 package com.bobbyesp.proii.ejercicio1;
 
-import java.util.Scanner;
-
 public class Division {
-    public static int divide(int a, int b) {
+    public static double divide(int a, int b) {
         // Opción: lanzar la excepción manualmente
         // if(b == 0){
         //     throw new ArithmeticException("El divisor no puede ser cero.");
         // }
         // return a / b;
 
-        // Opción: dejar que la división por 0 lance la excepción por sí sola.
-        return a / b;
+        // Opción: dejar que la división por 0 sea lanzada por sí sola.
+        return (double) a / b;
     }
 
     public static void main(String[] args) {

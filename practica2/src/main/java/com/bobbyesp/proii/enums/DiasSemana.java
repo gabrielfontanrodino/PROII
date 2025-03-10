@@ -6,17 +6,16 @@ package com.bobbyesp.proii.enums;
  */
 
 /**
- *
  * @author Docente
  */
 public enum DiasSemana {
-    LUNES(1,true),
-    MARTES(2,true),
-    MIERCOLES(3,true),
-    JUEVES(4,true),
-    VIERNES(5,true),
-    SABADO(6,false),
-    DOMINGO(7,false);
+    LUNES(1, true),
+    MARTES(2, true),
+    MIERCOLES(3, true),
+    JUEVES(4, true),
+    VIERNES(5, true),
+    SABADO(6, false),
+    DOMINGO(7, false);
 
     private final int posicion;
     private final boolean laborable;
@@ -29,21 +28,20 @@ public enum DiasSemana {
     public boolean esLaborable() {
         return laborable;
     }
-    
-    public int energiaTotal(int numero){
+
+    public int energiaTotal(int numero) {
         return numero - posicion;
     }
 
     public int getPosicion() {
         return posicion;
     }
-    
-    
+
+
     @Override
     public String toString() {
-       return Character.toString(name().charAt(0)) + name().substring(1).toLowerCase() ;
+        return Character.toString(name().charAt(0)) + name().substring(1).toLowerCase();
     }
-    
-    
-    
+
+
 }

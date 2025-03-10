@@ -25,15 +25,15 @@ public class Entrada {
 
         do {
             try {
-                System.out.println(mensaje);
+                System.out.print(mensaje);
                 str = entrada.nextLine();
                 num = Integer.parseInt(str);
                 error = false;
             } catch (NumberFormatException e) {
-                System.out.println("Error: Debe introducir un número entero.");
+                System.out.println("Error - Debe introducir un número entero.");
                 error = true;
             }
-        } while(error);
+        } while (error);
 
         return num;
     }

@@ -5,7 +5,6 @@
 package com.bobbyesp.proii.ejercicio2;
 
 /**
- *
  * @author Docente
  */
 public class Articulo {
@@ -18,8 +17,8 @@ public class Articulo {
         this.precio = precio;
         this.tipo = tipo;
     }
-    
-    public double getPrecioReal(){
+
+    public double getPrecioReal() {
         return tipo.calcularPrecioFinal(precio);
     }
 
@@ -32,6 +31,6 @@ public class Articulo {
         sb.append('}');
         return sb.toString();
     }
-    
-    
+
+
 }

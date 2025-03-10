@@ -6,7 +6,6 @@ package com.bobbyesp.proii.ejercicio7;
 import com.bobbyesp.proii.ejercicio1.Entrada;
 
 /**
- *
  * @author Docente
  */
 public class Ejercicio7 {
@@ -43,28 +42,29 @@ public class Ejercicio7 {
             }
             opt = Entrada.leerEntero("Opcion: ");
         } while (opt < 1 || opt > Categoria.values().length);
-        return Categoria.values()[opt-1];
+        return Categoria.values()[opt - 1];
     }
-    
+
     public static Deportista leerDeportista() {
         int dni;
         String nombre;
         Categoria cat;
         int edad;
-        
+
         dni = Entrada.leerEntero("Dame le DNI: ");
         nombre = Entrada.leerCadena("Dame el nombre: ");
         cat = getCategoria();
         edad = Entrada.leerEntero("Dame la edad: ");
-        
+
         return new Deportista(dni, nombre, cat, edad);
-        
+
     }
-    public static void  anhadirDeportista(Club club){
+
+    public static void anhadirDeportista(Club club) {
         if (club.isFull()) System.out.println("El club está lleno, no admite mas deportistas");
-        else{
+        else {
             club.insertarDeportista(leerDeportista());
         }
-        
+
     }
 }

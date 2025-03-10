@@ -5,7 +5,6 @@
 package com.bobbyesp.proii.ejercicio5;
 
 /**
- *
  * @author Docente
  */
 public enum Operacion {
@@ -54,6 +53,6 @@ public enum Operacion {
                 .append(Double.toString(operar(numero1, numero2)));
 
         return sb.toString();
-        
+
     }
 }

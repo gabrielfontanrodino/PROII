@@ -5,7 +5,6 @@
 package com.bobbyesp.proii.ejercicio7;
 
 /**
- *
  * @author Docente
  */
 public class Club {

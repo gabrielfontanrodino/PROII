@@ -5,15 +5,14 @@
 package com.bobbyesp.proii.ejercicio2;
 
 /**
- *
  * @author Docente
  */
 public class Email {
-        private static final String SERVIDOR = "esei.uvigo.es";
-        private String nombre;
-        private String apellido;
-        private String usuario;
-        private String servidor;
+    private static final String SERVIDOR = "esei.uvigo.es";
+    private String nombre;
+    private String apellido;
+    private String usuario;
+    private String servidor;
 
     public Email(String nombre, String apellido, String usuario, String servidor) {
         this.nombre = nombre;
@@ -54,7 +53,6 @@ public class Email {
         sb.append("@").append(servidor);
         return sb.toString();
     }
-    
-    
-        
+
+
 }

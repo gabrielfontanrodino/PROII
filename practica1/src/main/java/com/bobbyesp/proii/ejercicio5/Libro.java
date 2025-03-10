@@ -5,7 +5,6 @@
 package com.bobbyesp.proii.ejercicio5;
 
 /**
- *
  * @author Docente
  */
 public class Libro {
@@ -22,7 +21,7 @@ public class Libro {
     private String editorial;
     private int ano;
     private int isbn;
-    
+
     public Libro(String titulo, String autores, String editorial, int ano, int isbn) {
         this.titulo = titulo;
         this.autores = autores;
@@ -41,7 +40,6 @@ public class Libro {
         sb.append("\nISBN = ").append(isbn);
         return sb.toString();
     }
-    
-    
-    
+
+
 }
