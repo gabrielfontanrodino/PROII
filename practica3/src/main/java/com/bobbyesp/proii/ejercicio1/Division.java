@@ -1,7 +1,7 @@
 package com.bobbyesp.proii.ejercicio1;
 
 public class Division {
-    public static double divide(int a, int b) {
+    public static int divide(int a, int b) {
         // Opción: lanzar la excepción manualmente
         // if(b == 0){
         //     throw new ArithmeticException("El divisor no puede ser cero.");
@@ -9,7 +9,7 @@ public class Division {
         // return a / b;
 
         // Opción: dejar que la división por 0 sea lanzada por sí sola.
-        return (double) a / b;
+        return a / b;
     }
 
     public static void main(String[] args) {

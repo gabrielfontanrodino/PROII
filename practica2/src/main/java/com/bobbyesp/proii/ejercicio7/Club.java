@@ -32,6 +32,8 @@ public class Club {
         return getNumDeportistas() == getMax();
     }
 
+    public boolean isEmpty() { return this.pos == 0; }
+
     public void insertarDeportista(Deportista deportista) {
         if (isFull()) {
             throw new IllegalArgumentException("El club no admite más jugadores");
@@ -41,7 +43,7 @@ public class Club {
     }
 
     public Deportista getDeportista(int posicion) {
-        if (posicion < 0 || posicion >= pos) {
+        if (posicion < 0 || posicion >= getNumDeportistas()) {
             throw new IllegalArgumentException("Posición incorrecta: " + posicion);
         }
         return deportistas[posicion];

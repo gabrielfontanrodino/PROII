@@ -39,13 +39,44 @@ public class Entrada {
     }
 
     public static double leerReal(String mensaje) {
-        System.out.println(mensaje);
-        return Double.parseDouble(entrada.nextLine());
+        double num = 0.0;
+        String str;
+        boolean error;
+
+        do {
+            try {
+                System.out.print(mensaje);
+                str = entrada.nextLine();
+                num = Double.parseDouble(str);
+                error = false;
+            } catch (NumberFormatException e) {
+                System.out.println("Error - Debe introducir un número real.");
+                error = true;
+            }
+        } while (error);
+
+        return num;
     }
 
     public static char leerCaracter(String mensaje) {
-        System.out.println(mensaje);
-        return entrada.nextLine().charAt(0);
+        String str = "";
+        boolean error;
+
+        do {
+            try {
+                System.out.print(mensaje);
+                str = entrada.nextLine();
+                if (str.length() != 1) {
+                    throw new IllegalArgumentException("Error - Debe introducir un solo carácter.");
+                }
+                error = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println(e.getMessage());
+                error = true;
+            }
+        } while (error);
+
+        return str.charAt(0);
     }
 
 }

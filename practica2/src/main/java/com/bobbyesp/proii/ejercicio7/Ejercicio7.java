@@ -16,10 +16,10 @@ public class Ejercicio7 {
 
         // Intentar insertar deportistas y capturar la excepción si el club está lleno
         try {
-            club.insertarDeportista(new Deportista(12345678, "Juan", Categoria.ALEVIN, 25));
-            club.insertarDeportista(new Deportista(23456789, "Ana", Categoria.BENJAMIN, 30));
+            club.insertarDeportista(new Deportista("12345678", "Juan", Categoria.ALEVIN, 25));
+            club.insertarDeportista(new Deportista("23456789", "Ana", Categoria.BENJAMIN, 30));
             // Este intento lanzará excepción porque se excede la capacidad del club
-            club.insertarDeportista(new Deportista(34567890, "Luis", Categoria.ALEVIN, 22));
+            club.insertarDeportista(new Deportista("34567890", "Luis", Categoria.ALEVIN, 22));
         } catch (IllegalArgumentException e) {
             System.out.println("Error al insertar deportista: " + e.getMessage());
         }
@@ -46,12 +46,15 @@ public class Ejercicio7 {
     }
 
     public static Deportista leerDeportista() {
-        int dni;
+        String dni;
         String nombre;
         Categoria cat;
         int edad;
 
-        dni = Entrada.leerEntero("Dame le DNI: ");
+        do {
+            dni = Entrada.leerCadena("Dame el DNI: ");
+        } while (!Deportista.esValidoDni(dni));
+
         nombre = Entrada.leerCadena("Dame el nombre: ");
         cat = getCategoria();
         edad = Entrada.leerEntero("Dame la edad: ");

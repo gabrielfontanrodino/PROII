@@ -7,10 +7,9 @@ import java.util.Scanner;
 
 public class AplicacionFichero {
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        OperadorFichero operadorFichero = null;
 
-        try {
+        try (Scanner entrada = new Scanner(System.in)) {
+            OperadorFichero operadorFichero = null;
             // CUARTA TAREA: Si el fichero no existe, se solicita la ruta en bucle.
             while (true) {
                 try {
@@ -62,15 +61,12 @@ public class AplicacionFichero {
                 System.out.println(operadorFichero.readFile());
             } catch (AccessDeniedException ade) {
                 System.out.println("Error: Acceso denegado al leer el fichero.");
-                return;
             } catch (IOException ioe) {
                 System.out.println("Error de lectura del fichero: " + ioe.getMessage());
-                return;
             }
 
         } finally {
             // QUINTA TAREA: Siempre se cierra el Scanner y se muestra el mensaje antes de salir.
-            entrada.close();
             System.out.println("Hasta la próxima.");
         }
     }

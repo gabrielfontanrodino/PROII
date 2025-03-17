@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 
 public class OperadorFichero {
-    private File fichero;
+    private final File fichero;
 
     public OperadorFichero(File fichero) {
         // SEGUNDA TAREA: Verificar que el fichero existe.
