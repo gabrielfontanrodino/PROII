@@ -14,7 +14,9 @@ public class Deportista {
     private int edad; // nuevo atributo
 
     public Deportista(String dni, String nombre, Categoria cat, int edad) {
-        if(!esValidoDni(dni)) throw new IllegalArgumentException("Dni inválido");
+        if (!esValidoDni(dni)) {
+            throw new IllegalArgumentException("Dni inválido");
+        }
         this.dni = dni;
         this.nombre = nombre;
         this.cat = cat;
@@ -39,19 +41,17 @@ public class Deportista {
         if (edad <= 0) {
             throw new IllegalArgumentException("Edad inválida: " + edad + ". La edad debe ser mayor que 0.");
         }
-
-        if (edad < cat.getMin() || edad > cat.getMax())
+        if (edad < cat.getMin() || edad > cat.getMax()) {
             throw new IllegalArgumentException("La edad no se corresponde con la categoría");
-
+        }
         return edad;
     }
 
     private Categoria comprobarCategoria(Categoria cat) {
-        if(cat == null) {
+        if (cat == null) {
             throw new IllegalArgumentException("La categoría no puede ser nula");
         }
-
-        if(!cat.esValidaEdad(this.edad)) {
+        if (!cat.esValidaEdad(this.edad)) {
             throw new IllegalArgumentException("La edad del deportista no coincide con su nueva categoría.");
         }
 
@@ -82,26 +82,18 @@ public class Deportista {
     }
 
     public static boolean esValidoDni(String dni) {
-        boolean toret;
-        char letra;
-        int num;
-        String cad;
-
-        String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-        if (dni.trim().length() != 9) {
-            toret = true;
-        } else {
-            try {
-                cad = dni.substring(0, 8);
-                num = Integer.parseInt(cad);
-                letra = dni.charAt(8);
-                toret = letras.charAt(num % 23) == letra;
-            } catch (NumberFormatException e) {
-                toret = false;
-            }
+        if (dni == null || dni.trim().length() != 9) {
+            return false;
         }
-
-        return toret;
+        try {
+            int num = Integer.parseInt(dni.substring(0, 8));
+            char letra = dni.charAt(8);
+            String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
+            char letraCorrecta = letras.charAt(num % 23);
+            return letraCorrecta == letra;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 
     @Override

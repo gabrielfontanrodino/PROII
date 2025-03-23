@@ -67,40 +67,25 @@ public class Club implements IClub {
     @Override
     public void eliminarDeportista(int posicion) throws EmptyClubException {
         assertNotEmpty();
-
-        if (posicion < 0 || posicion >= getNumDeportistas()) {
-            throw new IllegalArgumentException("Posición incorrecta: " + posicion);
-        }
-        for (int i = posicion; i < getNumDeportistas() - 1; i++) {
-            deportistas[i] = deportistas[i + 1];
-        }
-        pos--;
+        validatePosition(posicion);
+        removeDeportistaAt(posicion);
     }
 
     @Override
     public void eliminarDeportista(String dni) throws EmptyClubException {
         assertNotEmpty();
-
         int posicion = indiceDe(getDeportista(dni));
-
-        for (int i = posicion; i < getNumDeportistas() - 1; i++) {
-            deportistas[i] = deportistas[i + 1];
-        }
-
-        pos--;
+        removeDeportistaAt(posicion);
     }
 
     @Override
     public Deportista getDeportista(int posicion) throws EmptyClubException {
-        if (posicion < 0 || posicion >= getNumDeportistas()) {
-            throw new IllegalArgumentException("Posición incorrecta: " + posicion);
-        }
+        validatePosition(posicion);
         return deportistas[posicion];
     }
 
     @Override
     public Deportista getDeportista(String dni) {
-
         for (int i = 0; i < getNumDeportistas(); i++) {
             if (deportistas[i].getDni().equals(dni)) {
                 return deportistas[i];
@@ -112,7 +97,6 @@ public class Club implements IClub {
     @Override
     public boolean existeDeportista(Deportista deportista) {
         String dni = deportista.getDni();
-
         return getDeportista(dni) != null;
     }
 
@@ -162,6 +146,20 @@ public class Club implements IClub {
         if (isEmpty()) {
             throw new EmptyClubException();
         }
+    }
+
+    private void validatePosition(int posicion) {
+        if (posicion < 0 || posicion >= getNumDeportistas()) {
+            throw new IllegalArgumentException("Posición incorrecta: " + posicion);
+        }
+    }
+
+    private void removeDeportistaAt(int posicion) {
+        for (int i = posicion; i < getNumDeportistas() - 1; i++) {
+            deportistas[i] = deportistas[i + 1];
+        }
+        deportistas[getNumDeportistas() - 1] = null; // Clear the last element
+        pos--;
     }
 
     @Override
