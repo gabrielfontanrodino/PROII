@@ -1,5 +1,6 @@
 package com.bobbyesp.proii.ejercicio7.club;
 
+import com.bobbyesp.proii.ejercicio7.Categoria;
 import com.bobbyesp.proii.ejercicio7.Deportista;
 import com.bobbyesp.proii.ejercicio7.exceptions.EmptyClubException;
 
@@ -27,6 +28,7 @@ public interface IClub {
     boolean existeDeportista(Deportista deportista);
 
     void mostrarListaDeportistas() throws EmptyClubException;
+    void mostrarListaDeportistas(Categoria categoria) throws EmptyClubException;
 
     double generarMediaDeEdades() throws EmptyClubException;
 }

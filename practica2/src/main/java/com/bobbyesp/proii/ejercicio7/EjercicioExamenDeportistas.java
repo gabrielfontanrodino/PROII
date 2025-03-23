@@ -22,6 +22,10 @@ public class EjercicioExamenDeportistas {
 
         miclub = new Club(maxDeportistas);
 
+        miclub.insertarDeportista(new Deportista("12345678", "Juan", Categoria.ALEVIN, 11));
+        miclub.insertarDeportista(new Deportista("23456789", "Ana", Categoria.BENJAMIN, 8));
+        miclub.insertarDeportista(new Deportista("34567890", "Luis", Categoria.ALEVIN, 10));
+
         do {
             try {
                 opc = menu();
@@ -65,8 +69,8 @@ public class EjercicioExamenDeportistas {
                         miclub.eliminarDeportista(dni);
                     }
                     case 8 -> {
-                        System.out.println("La media de edad de los deportistas es de: "
-                                + miclub.generarMediaDeEdades() + "años");
+                        double media = miclub.generarMediaDeEdades();
+                        System.out.println("La media de edad de los deportistas es de: " + String.format("%.2f", media) + " años.");
                     }
                     case 9 -> {
                         int option;
@@ -85,10 +89,25 @@ public class EjercicioExamenDeportistas {
                         modifiableDeportista.setEdad(nuevaEdad);
                     }
                     case 10 -> {
+                        int option;
+                        Categoria nuevaCategoria;
 
+                        miclub.mostrarListaDeportistas();
+
+                        do {
+                            option = leerEntero("Seleccione el deportista: ");
+                        } while (option < 0 && option > miclub.getNumDeportistas());
+
+                        Deportista modifiableDeportista = miclub.getDeportista(option - 1);
+
+                        nuevaCategoria = leerCategoria();
+
+                        modifiableDeportista.setCat(nuevaCategoria);
                     }
                     case 11 -> {
-
+                        Categoria cat;
+                        cat = leerCategoria();
+                        miclub.mostrarListaDeportistas(cat);
                     }
                 }
             } catch (NumberFormatException exc) {
@@ -144,7 +163,7 @@ public class EjercicioExamenDeportistas {
         do {
             System.out.println("=========== MENU ===========");
             System.out.println("1. Insertar deportista"); //(Comprobar previamente que no exista ya).
-            System.out.println("2. Obtener los datos de un deportista (DNI)");
+            System.out.println("2. Obtener los datos de un deportista");
             System.out.println("3. Saber cuantos deportista tiene el club");
             System.out.println("4. Saber el numero máximo de deportistas que puede tener el club");
             System.out.println("5. Listar deportistas");

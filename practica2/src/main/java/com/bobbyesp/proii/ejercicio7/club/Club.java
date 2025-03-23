@@ -1,5 +1,6 @@
 package com.bobbyesp.proii.ejercicio7.club;
 
+import com.bobbyesp.proii.ejercicio7.Categoria;
 import com.bobbyesp.proii.ejercicio7.Deportista;
 import com.bobbyesp.proii.ejercicio7.exceptions.EmptyClubException;
 
@@ -126,6 +127,22 @@ public class Club implements IClub {
         }
         System.out.println("==================================");
         System.out.println("\n");
+    }
+
+    @Override
+    public void mostrarListaDeportistas(Categoria categoria) throws EmptyClubException {
+        assertNotEmpty();
+
+        System.out.println("\n");
+        System.out.println("====== Lista de deportistas" +  " - " + categoria.toString() + " ======");
+        for (int i = 0; i < getNumDeportistas(); i++) {
+            if(categoria.equals(deportistas[i].getCat())) {
+                System.out.println(i + 1 + ". " + deportistas[i].getNombre());
+            }
+        }
+        System.out.println("=======================================");
+        System.out.println("\n");
+
     }
 
     @Override

@@ -14,6 +14,7 @@ public class Deportista {
     private int edad; // nuevo atributo
 
     public Deportista(String dni, String nombre, Categoria cat, int edad) {
+        if(!esValidoDni(dni)) throw new IllegalArgumentException("Dni inválido");
         this.dni = dni;
         this.nombre = nombre;
         this.cat = cat;
@@ -25,11 +26,11 @@ public class Deportista {
     }
 
     public void setEdad(int edad) {
-        this.edad = comprobarEdad(edad);
-        //Comprobar categoría
-        Categoria nuevaCat = Categoria.getCategoria(edad);
-        if(this.cat != nuevaCat) {
-            this.cat = nuevaCat;
+        try {
+            this.edad = comprobarEdad(edad);
+        } catch (IllegalArgumentException e) {
+            this.edad = edad;
+            this.cat = Categoria.getCategoria(edad);
             System.out.println("Cambio de categoría detectado. Nueva: " + this.cat);
         }
     }
@@ -45,12 +46,39 @@ public class Deportista {
         return edad;
     }
 
+    private Categoria comprobarCategoria(Categoria cat) {
+        if(cat == null) {
+            throw new IllegalArgumentException("La categoría no puede ser nula");
+        }
+
+        if(!cat.esValidaEdad(this.edad)) {
+            throw new IllegalArgumentException("La edad del deportista no coincide con su nueva categoría.");
+        }
+
+        return cat;
+    }
+
     public String getDni() {
         return this.dni;
     }
 
     public String getNombre() {
         return this.nombre;
+    }
+
+    public Categoria getCat() {
+        return this.cat;
+    }
+
+    public void setCat(Categoria cat) {
+        try {
+            this.cat = comprobarCategoria(cat);
+        } catch (IllegalArgumentException e) {
+            //Esto va a realizar el cambio automáticamente.
+            //Habría que ver en el examen si se quiere/puede hacer esto.
+            this.cat = Categoria.getCategoria(cat.getMin());
+            this.edad = comprobarEdad(cat.getMin());
+        }
     }
 
     public static boolean esValidoDni(String dni) {
