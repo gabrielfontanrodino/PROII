@@ -15,7 +15,7 @@ public enum Operacion {
 
     private final char operador;
 
-    private Operacion(char simbolo) {
+    Operacion(char simbolo) {
         this.operador = simbolo;
     }
 
@@ -46,11 +46,11 @@ public enum Operacion {
 
         sb.append(numero1)
                 .append(" ")
-                .append(Character.toString(operador))
+                .append(operador)
                 .append(" ")
                 .append(numero2)
                 .append(" = ")
-                .append(Double.toString(operar(numero1, numero2)));
+                .append(operar(numero1, numero2));
 
         return sb.toString();
 

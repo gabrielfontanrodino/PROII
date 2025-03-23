@@ -16,14 +16,12 @@ public enum TipoIVA {
 
     private final double porcentaje;
 
-    private TipoIVA(double porcentaje) {
+    TipoIVA(double porcentaje) {
         this.porcentaje = porcentaje;
     }
-
 
     public double calcularPrecioFinal(double precio) {
         return precio + precio * porcentaje;
     }
-
 
 }

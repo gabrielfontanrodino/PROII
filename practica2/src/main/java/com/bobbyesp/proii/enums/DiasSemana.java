@@ -20,7 +20,7 @@ public enum DiasSemana {
     private final int posicion;
     private final boolean laborable;
 
-    private DiasSemana(int posicion, boolean laborable) {
+    DiasSemana(int posicion, boolean laborable) {
         this.posicion = posicion;
         this.laborable = laborable;
     }
@@ -40,8 +40,7 @@ public enum DiasSemana {
 
     @Override
     public String toString() {
-        return Character.toString(name().charAt(0)) + name().substring(1).toLowerCase();
+        return name().charAt(0) + name().substring(1).toLowerCase();
     }
-
 
 }

@@ -34,6 +34,6 @@ public class Ejercicio5 {
 
         libro = new Libro(titulo, autores, editorial, ano, isbn);
 
-        System.out.println(libro.toString());
+        System.out.println(libro);
     }
 }

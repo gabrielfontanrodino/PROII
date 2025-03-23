@@ -1,28 +1,35 @@
-package com.bobbyesp.proii.ejercicio3;
+package com.bobbyesp.proii.ejercicio3;/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 
+
+/**
+ *
+ * @author Docente
+ */
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 
-public class OperadorFichero {
-    private final File fichero;
+class OperadorFichero {
+
+    private File fichero;
 
     public OperadorFichero(File fichero) {
-        // SEGUNDA TAREA: Verificar que el fichero existe.
-        if (!fichero.exists()) {
-            throw new IllegalArgumentException("El fichero no existe: " + fichero.getAbsolutePath());
+        if (!fichero.exists()){
+            throw new IllegalArgumentException("Fichero no disponible");
         }
         this.fichero = fichero;
     }
 
-    // PRIMERA TAREA: Se declara throws IOException para que la clase sea reutilizable
-    public String readFile() throws IOException {
+    public String leerFichero() throws IOException {
         return new String(Files.readAllBytes(this.fichero.toPath()));
     }
 
-    // PRIMERA TAREA: Se declara throws IOException para que la clase sea reutilizable
-    public void addText(String texto) throws IOException {
+    public void appendTexto(String texto) throws IOException {
         Files.write(this.fichero.toPath(), texto.getBytes(), StandardOpenOption.APPEND);
     }
 }
+

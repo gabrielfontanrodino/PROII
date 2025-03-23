@@ -36,10 +36,10 @@ public class Cuenta {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Cuenta{");
+        sb.append("Cuenta(");
         sb.append("titular=").append(titular);
         sb.append(", saldo=").append(saldo);
-        sb.append('}');
+        sb.append(')');
         return sb.toString();
     }
 }
