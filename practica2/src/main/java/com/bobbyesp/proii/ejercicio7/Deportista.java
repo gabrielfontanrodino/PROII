@@ -14,23 +14,43 @@ public class Deportista {
     private int edad; // nuevo atributo
 
     public Deportista(String dni, String nombre, Categoria cat, int edad) {
-        if (edad <= 0) {
-            throw new IllegalArgumentException("Edad inválida: " + edad + ". La edad debe ser mayor que 0.");
-        }
         this.dni = dni;
         this.nombre = nombre;
         this.cat = cat;
-        this.edad = edad;
+        this.edad = comprobarEdad(edad);
+    }
+
+    public int getEdad() {
+        return edad;
     }
 
     public void setEdad(int edad) {
         this.edad = comprobarEdad(edad);
+        //Comprobar categoría
+        Categoria nuevaCat = Categoria.getCategoria(edad);
+        if(this.cat != nuevaCat) {
+            this.cat = nuevaCat;
+            System.out.println("Cambio de categoría detectado. Nueva: " + this.cat);
+        }
     }
 
-    private int comprobarEdad(int edad){
-        if(edad < cat.getMin()||edad > cat.getMax())
-            throw new IllegalArgumentException("La edad no se corresponde con la categoria");
+    private int comprobarEdad(int edad) {
+        if (edad <= 0) {
+            throw new IllegalArgumentException("Edad inválida: " + edad + ". La edad debe ser mayor que 0.");
+        }
+
+        if (edad < cat.getMin() || edad > cat.getMax())
+            throw new IllegalArgumentException("La edad no se corresponde con la categoría");
+
         return edad;
+    }
+
+    public String getDni() {
+        return this.dni;
+    }
+
+    public String getNombre() {
+        return this.nombre;
     }
 
     public static boolean esValidoDni(String dni) {
@@ -40,7 +60,7 @@ public class Deportista {
         String cad;
 
         String letras = "TRWAGMYFPDXBNJZSQVHLCKE";
-        if(dni.trim().length() != 9) {
+        if (dni.trim().length() != 9) {
             toret = true;
         } else {
             try {

@@ -4,6 +4,7 @@
 package com.bobbyesp.proii.ejercicio7;
 
 import com.bobbyesp.proii.ejercicio1.Entrada;
+import com.bobbyesp.proii.ejercicio7.club.Club;
 
 /**
  * @author Docente
@@ -34,17 +35,6 @@ public class Ejercicio7 {
         System.out.println(club);
     }
 
-    public static Categoria getCategoria() {
-        int opt;
-        do {
-            for (int i = 0; i < Categoria.values().length; i++) {
-                System.out.println((i + 1) + ": " + Categoria.values()[i]);
-            }
-            opt = Entrada.leerEntero("Opcion: ");
-        } while (opt < 1 || opt > Categoria.values().length);
-        return Categoria.values()[opt - 1];
-    }
-
     public static Deportista leerDeportista() {
         String dni;
         String nombre;
@@ -56,14 +46,14 @@ public class Ejercicio7 {
         } while (!Deportista.esValidoDni(dni));
 
         nombre = Entrada.leerCadena("Dame el nombre: ");
-        cat = getCategoria();
+        cat = Categoria.leerCategoria();
         edad = Entrada.leerEntero("Dame la edad: ");
 
         return new Deportista(dni, nombre, cat, edad);
 
     }
 
-    public static void anhadirDeportista(Club club) {
+    public static void addDeportista(Club club) {
         if (club.isFull()) System.out.println("El club está lleno, no admite mas deportistas");
         else {
             club.insertarDeportista(leerDeportista());
