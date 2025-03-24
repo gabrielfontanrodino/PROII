@@ -19,64 +19,41 @@ public class Entrada {
     }
 
     public static int leerEntero(String mensaje) {
-        int num = 0;
-        String str;
-        boolean error;
-
-        do {
+        while (true) {
             try {
                 System.out.print(mensaje);
-                str = entrada.nextLine();
-                num = Integer.parseInt(str);
-                error = false;
+                return Integer.parseInt(entrada.nextLine());
             } catch (NumberFormatException e) {
-                System.out.println("Error - Debe introducir un número entero.");
-                error = true;
+                System.err.println("Error - Debe introducir un número entero.");
             }
-        } while (error);
-
-        return num;
+        }
     }
 
     public static double leerReal(String mensaje) {
-        double num = 0.0;
-        String str;
-        boolean error;
-
-        do {
+        while (true) {
             try {
-                System.out.print(mensaje);
-                str = entrada.nextLine();
-                num = Double.parseDouble(str);
-                error = false;
+                System.out.println(mensaje);
+                return Double.parseDouble(entrada.nextLine());
             } catch (NumberFormatException e) {
-                System.out.println("Error - Debe introducir un número real.");
-                error = true;
+                System.err.println("Error - Debe introducir un número real.");
             }
-        } while (error);
-
-        return num;
+        }
     }
 
     public static char leerCaracter(String mensaje) {
-        String str = "";
-        boolean error;
-
-        do {
+        while (true) {
             try {
-                System.out.print(mensaje);
-                str = entrada.nextLine();
+                System.out.println(mensaje);
+                String str = entrada.nextLine();
+
                 if (str.length() != 1) {
-                    throw new IllegalArgumentException("Error - Debe introducir un solo carácter.");
+                    throw new IllegalArgumentException();
                 }
-                error = false;
+
+                return str.charAt(0);
             } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-                error = true;
+                System.err.println("Error - Debe introducir al menos un carácter.");
             }
-        } while (error);
-
-        return str.charAt(0);
+        }
     }
-
 }
