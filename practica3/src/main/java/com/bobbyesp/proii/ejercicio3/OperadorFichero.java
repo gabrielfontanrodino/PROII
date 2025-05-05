@@ -5,9 +5,9 @@ package com.bobbyesp.proii.ejercicio3;/*
 
 
 /**
- *
  * @author Docente
  */
+
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,7 +18,7 @@ class OperadorFichero {
     private File fichero;
 
     public OperadorFichero(File fichero) {
-        if (!fichero.exists()){
+        if (!fichero.exists()) {
             throw new IllegalArgumentException("Fichero no disponible");
         }
         this.fichero = fichero;

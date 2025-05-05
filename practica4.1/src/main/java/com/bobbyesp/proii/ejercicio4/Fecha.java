@@ -5,7 +5,6 @@
 package com.bobbyesp.proii.ejercicio4;
 
 /**
- *
  * @author Docente
  */
 public class Fecha {
@@ -27,6 +26,6 @@ public class Fecha {
         sb.append("/").append(ano);
         return sb.toString();
     }
-    
-    
+
+
 }

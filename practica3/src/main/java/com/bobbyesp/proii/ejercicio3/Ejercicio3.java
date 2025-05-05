@@ -1,16 +1,11 @@
-package com.bobbyesp.proii.ejercicio3;/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
+package com.bobbyesp.proii.ejercicio3;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.util.Scanner;
 
-/**
- *
- * @author Docente
- */
+
 public class Ejercicio3 {
 
     public static void main(String[] args) {

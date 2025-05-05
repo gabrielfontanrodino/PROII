@@ -11,7 +11,6 @@ import java.util.List;
  * @author Docente
  */
 public class Reunion {
-
     private static final int MAX_ASISTENTES = 10;
     private String asunto;
     private String lugar;
@@ -95,34 +94,21 @@ public class Reunion {
         }
 
         secretario = nuevoSecretario;
-
-
     }
 
     public int getPosicionAsistente(Asistente asistente) {
-        boolean encontrado = false;
-        int pos = 0;
-        while (pos < getNumAsistentes() && !encontrado) {
-            if (asistente.equals(getAsistentePosicion(pos))) {
-                encontrado = true;
-            } else ++pos;
+        if (asistentes.contains(asistente)) {
+            ;
+            return asistentes.indexOf(asistente);
         }
-        if (!encontrado) pos = -1;
-
-        return pos;
+        throw new IllegalArgumentException("El asistente no existe ");
     }
 
     public boolean existeAsistente(Asistente asistente) {
-        boolean encontrado = false;
-        int pos = 0;
-        while (pos < getNumAsistentes() && !encontrado) {
-            if (asistente.equals(getAsistentePosicion(pos))) {
-                encontrado = true;
-            }
-            ++pos;
+        if (asistente == null) {
+            throw new IllegalArgumentException("Asistente no existe ");
         }
-
-        return encontrado;
+        return asistentes.contains(asistente);
     }
 
 

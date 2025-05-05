@@ -23,6 +23,7 @@ public enum Categoria {
 
     /**
      * Gets the minimum age for the category.
+     *
      * @return the minimum age
      */
     public int getMin() {
@@ -31,6 +32,7 @@ public enum Categoria {
 
     /**
      * Gets the maximum age for the category.
+     *
      * @return the maximum age
      */
     public int getMax() {
@@ -39,6 +41,7 @@ public enum Categoria {
 
     /**
      * Determines the category based on age.
+     *
      * @param edad the age to check
      * @return the corresponding category or null if no match is found
      */
@@ -51,6 +54,7 @@ public enum Categoria {
 
     /**
      * Reads and returns a category based on user input.
+     *
      * @return the selected category
      */
     public static Categoria leerCategoria() {
@@ -69,6 +73,7 @@ public enum Categoria {
 
     /**
      * Checks if the given age is valid for the category.
+     *
      * @param edad the age to check
      * @return true if the age is valid, false otherwise
      */

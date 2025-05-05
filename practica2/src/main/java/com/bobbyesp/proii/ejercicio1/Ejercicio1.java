@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.bobbyesp.proii.ejercicio1;
 
 import static com.bobbyesp.proii.ejercicio1.Libro.leerLibro;

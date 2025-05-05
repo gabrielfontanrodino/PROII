@@ -28,6 +28,7 @@ public interface IClub {
     boolean existeDeportista(Deportista deportista);
 
     void mostrarListaDeportistas() throws EmptyClubException;
+
     void mostrarListaDeportistas(Categoria categoria) throws EmptyClubException;
 
     double generarMediaDeEdades() throws EmptyClubException;

@@ -118,9 +118,9 @@ public class Club implements IClub {
         assertNotEmpty();
 
         System.out.println("\n");
-        System.out.println("====== Lista de deportistas" +  " - " + categoria.toString() + " ======");
+        System.out.println("====== Lista de deportistas" + " - " + categoria.toString() + " ======");
         for (int i = 0; i < getNumDeportistas(); i++) {
-            if(categoria.equals(deportistas[i].getCat())) {
+            if (categoria.equals(deportistas[i].getCat())) {
                 System.out.println(i + 1 + ". " + deportistas[i].getNombre());
             }
         }
@@ -135,7 +135,7 @@ public class Club implements IClub {
 
         double sum = 0.0;
 
-        for(int i = 0; i < getNumDeportistas(); i++) {
+        for (int i = 0; i < getNumDeportistas(); i++) {
             sum += deportistas[i].getEdad();
         }
 

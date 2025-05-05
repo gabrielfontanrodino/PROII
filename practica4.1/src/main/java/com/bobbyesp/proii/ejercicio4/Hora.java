@@ -6,7 +6,6 @@ package com.bobbyesp.proii.ejercicio4;
  */
 
 /**
- *
  * @author Docente
  */
 public class Hora {
@@ -25,6 +24,6 @@ public class Hora {
         sb.append(":").append(minutos);
         return sb.toString();
     }
-    
-    
+
+
 }

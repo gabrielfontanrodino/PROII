@@ -7,7 +7,6 @@ package com.bobbyesp.proii.ejercicio4;
 import java.util.Objects;
 
 /**
- *
  * @author Docente
  */
 public class Asistente {
@@ -39,13 +38,12 @@ public class Asistente {
             return false;
         }
         final Asistente other = (Asistente) obj;
-        if (!(this.nombre.equalsIgnoreCase( other.nombre))) {
+        if (!(this.nombre.equalsIgnoreCase(other.nombre))) {
             return false;
         }
         return Objects.equals(this.correo, other.correo);
     }
 
-    
 
     @Override
     public String toString() {
@@ -56,6 +54,6 @@ public class Asistente {
         sb.append('}');
         return sb.toString();
     }
-    
-    
+
+
 }

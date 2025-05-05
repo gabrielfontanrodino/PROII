@@ -6,9 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="practica4.1" />
+        <module name="practica4.2" />
+        <module name="practica5" />
+        <module name="practica6" />
         <module name="practica3" />
         <module name="practica1" />
-        <module name="practica4.1" />
         <module name="practica2" />
       </profile>
     </annotationProcessing>
