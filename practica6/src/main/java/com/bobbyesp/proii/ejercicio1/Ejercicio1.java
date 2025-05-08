@@ -1,6 +1,7 @@
 package com.bobbyesp.proii.ejercicio1;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -17,7 +18,9 @@ public class Ejercicio1 {
         lista.add("dos");
         lista.add("tres");
 
+        //Ejercicio 1
         lista.forEach(System.out::println);
+        lista.forEach(s -> System.out.println(s.length()));
 
         lista.forEach((value) -> {
             if (value.length() > 3) {
@@ -26,7 +29,6 @@ public class Ejercicio1 {
         });
 
         lista.forEach(printSize);
-
         lista.forEach(Ejercicio1::imprimir);
     }
 

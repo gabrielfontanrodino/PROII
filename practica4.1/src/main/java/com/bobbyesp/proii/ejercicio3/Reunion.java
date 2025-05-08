@@ -77,7 +77,6 @@ public class Reunion {
     public void cambiarSecretario(Asistente nuevoSecretario) {
         int pos = getPosicionAsistente(nuevoSecretario);
 
-
         if (pos == -1 && !isFull()) {
             agregarAsistente(nuevoSecretario);
         } else if (isFull()) {
@@ -95,8 +94,11 @@ public class Reunion {
         while (pos < getNumAsistentes() && !encontrado) {
             if (asistente.equals(getAsistentePosicion(pos))) {
                 encontrado = true;
-            } else ++pos;
+            } else {
+                ++pos;
+            }
         }
+
         if (!encontrado) pos = -1;
 
         return pos;
