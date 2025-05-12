@@ -28,7 +28,7 @@ public class Lista<T> {
 
     public boolean existe(Predicate<T> predicado) {
         for(int i = 0; i < this.numElementos; i++) {
-            if (predicado.test(this.elementos[i])) {
+            if (predicado.test(obtener(i))) {
                 return true;
             }
         }
@@ -48,8 +48,7 @@ public class Lista<T> {
 
     public void paraCada(Consumer<T> consumer) {
         for (int i = 0; i < this.numElementos; i++) {
-            T elemento = this.elementos[i];
-            consumer.accept(elemento);
+            consumer.accept(obtener(i));
         }
     }
 
@@ -57,15 +56,15 @@ public class Lista<T> {
         validarPosicion(pos);
 
         for (int i = pos; i < this.numElementos - 1; i++) {
-            this.elementos[i] = this.elementos[i + 1];
+            this.elementos[i] = obtener(i+1);
         }
         this.numElementos--;
     }
 
     public <R> Lista<R> transformar(Function<T, R> function) {
         Lista<R> listaTransformada = new Lista<>(this.elementos.length);
-        for (T elemento : this.elementos) {
-            listaTransformada.anadir(function.apply(elemento));
+        for(int i = 0; i < this.numElementos; i++) {
+            listaTransformada.anadir(function.apply(obtener(i)));
         }
         return listaTransformada;
     }
