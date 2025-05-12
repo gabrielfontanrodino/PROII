@@ -10,5 +10,4 @@ public abstract class Mensaje implements Sendable {
     public String getTexto() {
         return texto;
     }
-
 }

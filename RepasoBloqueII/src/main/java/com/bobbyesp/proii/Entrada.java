@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Entrada {
 
-    private Scanner teclado;
     private static final String LETRAS_DNI = "TRWAGMYFPDXBNJZSQVHLCKE";
+    private final Scanner teclado;
 
 
     /**
@@ -14,7 +14,7 @@ public class Entrada {
     public Entrada() {
         this.teclado = new Scanner(System.in);
     }
- 
+
 
     /**
      * Lee una cadena de texto desde teclado comprobando que no sea vacía
@@ -25,11 +25,11 @@ public class Entrada {
     public String leeCadena(String mensaje) {
         String cadena = "";
         boolean valida = false;
-        
+
         while (!valida) {
             System.out.print(mensaje);
             cadena = teclado.nextLine().trim();
-            
+
             if (!cadena.isEmpty()) {
                 valida = true;
             } else {
@@ -60,10 +60,11 @@ public class Entrada {
 
         return toret;
     }
-    
+
     /**
      * Lee un DNI desde teclado y verifica que sea válido
-     * Un DNI válido tiene 8 dígitos seguidos de una letra válid
+     * Un DNI válido tiene 8 dígitos seguidos de una letra válida
+     *
      * @param mensaje texto para solicitar el DNI
      * @return El DNI válido leído
      */
@@ -96,5 +97,5 @@ public class Entrada {
 
 
     }
- 
+
 }

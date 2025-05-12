@@ -6,8 +6,8 @@ import java.util.function.Predicate;
 
 public class ClubDeportivo {
 
-    private List<Deportista> deportistas;
-    private int maximo;
+    private final List<Deportista> deportistas;
+    private final int maximo;
 
     /**
      * Nuevo Club Deportivo con un número máximo de deportistas
@@ -70,23 +70,24 @@ public class ClubDeportivo {
         deportistas.add(d);
     }
 
-    public void filtrarDeportistas(String categoria){
+    public void filtrarDeportistas(String categoria) {
         deportistas.forEach(d -> {
-            if (d.getCategoria().equalsIgnoreCase(categoria)){
+            if (d.getCategoria().equalsIgnoreCase(categoria)) {
                 System.out.println(d);
             }
-            
+
         });
     }
-    public ArrayList<Deportista> filtrarDeportistas(Predicate<Deportista> criterio) {
-        ArrayList<Deportista> toret = new ArrayList<>();
+
+    public List<Deportista> filtrarDeportistas(Predicate<Deportista> criterio) {
+        ArrayList<Deportista> deportistasFiltrados = new ArrayList<>();
 
         deportistas.forEach(d -> {
             if (criterio.test(d)) {
-                toret.add(d);
+                deportistasFiltrados.add(d);
             }
         });
-        return toret;
+        return deportistasFiltrados;
 
     }
 
